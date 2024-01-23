@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">OmieApp</string>
+    <string name="title_home">Home</string>
+    <string name="msg_no_orders">Nenhum pedido realizado no momento</string>
+    <string name="msg_splash">Desafio Técnico - Omie</string>
+    <string name="text_new_order">Fazer uma venda</string>
+    <string name="text_client_name">Nome do cliente</string>
+    <string name="text_title_client">Cliente</string>
+    <string name="text_title_product">Produto</string>
+    <string name="text_product_name">Nome do produto</string>
+    <string name="text_product_qtd">Quantidade</string>
+    <string name="text_product_value">Valor unitário</string>
+    <string name="text_title_number_order">Nº do pedido:</string>
+    <string name="text_title_client_name">Cliente:</string>
+    <string name="text_title_date">Data:</string>
+    <string name="text_title_amount">Total:</string>
+    <string name="text_title_qtd_items">QTD de itens:</string>
+    <string name="text_title_qtd_items_v2">QTD total de itens:</string>
+    <string name="text_title_amount_sales">Total de vendas:</string>
+    <string name="text_title_order_value">Valor do pedido:</string>
+
+    <string name="text_button_add_item">Adicionar item</string>
+    <string name="text_button_save">Salvar</string>
+    <string name="text_button_cancel">Cancelar</string>
+    <string name="text_button_close">Fechar</string>
+
+    <string name="text_feedback_product_add_success">Produto adicionado!</string>
+    <string name="text_feedback_name_client_not_empty">Informe o nome do cliente</string>
+    <string name="text_feedback_name_items_not_empty">Adicione algum produto</string>
+    <string name="text_feedback_order_success">Venda realizada com sucesso</string>
+    <string name="text_feedback_order_error">Ops. Não foi possível realizar a venda</string>
+
+    <string name="description_is_not_null">Informe</string>
+</resources>
