@@ -11,6 +11,8 @@ import com.bruno.omieapp.domain.usecase.GetOrderByIdState
 import com.bruno.omieapp.domain.usecase.GetOrderByIdUseCase
 import com.bruno.omieapp.domain.usecase.GetOrderStatus
 import com.bruno.omieapp.domain.usecase.GetOrdersUseCase
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
 class MainViewModel(
@@ -20,6 +22,9 @@ class MainViewModel(
 
     private val _state = mutableStateOf(MainState())
     val state: State<MainState> = _state
+
+    private val _toastMessage = MutableSharedFlow<Pair<Int?, String?>>()
+    val toastMessage = _toastMessage.asSharedFlow()
 
     val showDialog = mutableStateOf(false)
 
@@ -47,7 +52,10 @@ class MainViewModel(
                         _goToMainScreenLiveDate.value = Any()
                     }
 
-                    else -> {}
+                    is GetOrderStatus.Error -> {
+                        _goToMainScreenLiveDate.value = Any()
+                        showFeedbackMessage(message = it.message)
+                    }
                 }
             }
         }
@@ -56,12 +64,13 @@ class MainViewModel(
     fun onItemListClick(id: Int) {
         viewModelScope.launch {
             getOrderByIdUseCase(id).collect {
-                when(it) {
+                when (it) {
                     is GetOrderByIdState.Success -> {
                         _state.value.orderSelected = it.orderModel
                         showDialog.value = true
                     }
-                    is GetOrderByIdState.Error -> {}
+
+                    is GetOrderByIdState.Error -> showFeedbackMessage(message = it.message)
                 }
             }
         }
@@ -76,6 +85,10 @@ class MainViewModel(
 
     private fun goToOrderForm() {
         _goToOrderFormLiveDate.postValue(Any())
+    }
+
+    private fun showFeedbackMessage(resId: Int? = null, message: String? = null) {
+        viewModelScope.launch { _toastMessage.emit(Pair(resId, message)) }
     }
 }
 

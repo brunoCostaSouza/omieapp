@@ -102,5 +102,6 @@ fun MainScreen(
                 mViewModel.state.value.orderSelected!!
             )
         }
+        simpleToast(mViewModel.toastMessage)
     }
 }

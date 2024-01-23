@@ -42,7 +42,6 @@ fun cardItem(
         elevation = 8.dp,
         modifier = Modifier
             .padding(5.dp)
-            .height(85.dp)
     ) {
         val modifierText = Modifier.padding(start = 5.dp, top = 2.dp, end = 3.dp)
         Column(

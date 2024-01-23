@@ -117,7 +117,6 @@ fun DialogOrderDetail(
                                 }
                             }
                         }
-                        Divider(modifier = Modifier.padding(4.dp))
                     }
                 }
             },
