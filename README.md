@@ -1,6 +1,6 @@
-# Desafio Android - Omie
+# Desafio Android
 
-### APP para o teste técnico - Omie 
+### APP para simular vendas 
 
 Você precisa ter instalado na sua máquina:
 - [Android Studio](https://developer.android.com/studio)
